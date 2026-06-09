@@ -1,0 +1,25 @@
+@model EmployeeManagementSystem.Model.Employee
+
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<section class="page-header">
+    <div>
+        <h1>Create Employee</h1>
+        <p>Enter the employee details and submit them for validation before storage.</p>
+    </div>
+</section>
+
+<section class="panel">
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+
+        @await Html.PartialAsync("_EmployeeForm", Model)
+
+        <div class="actions">
+            <button type="submit" class="button">Create</button>
+            <a class="button secondary" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+</section>

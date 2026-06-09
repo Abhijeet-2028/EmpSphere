@@ -1,0 +1,26 @@
+@model EmployeeManagementSystem.Model.Employee
+
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+<section class="page-header">
+    <div>
+        <h1>Edit Employee</h1>
+        <p>Update employee details after business validation.</p>
+    </div>
+</section>
+
+<section class="panel">
+    <form asp-action="Edit" asp-route-id="@Model.EmployeeId" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="EmployeeId" />
+
+        @await Html.PartialAsync("_EmployeeForm", Model)
+
+        <div class="actions">
+            <button type="submit" class="button">Save</button>
+            <a class="button secondary" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+</section>

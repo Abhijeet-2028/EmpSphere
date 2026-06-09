@@ -1,0 +1,31 @@
+@model EmployeeManagementSystem.Model.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<section class="page-header">
+    <div>
+        <h1>Employee Details</h1>
+        <p>Review the selected employee record.</p>
+    </div>
+</section>
+
+<section class="panel">
+    <table>
+        <tbody>
+            <tr><th>Employee Id</th><td>@Model.EmployeeId</td></tr>
+            <tr><th>First Name</th><td>@Model.FirstName</td></tr>
+            <tr><th>Last Name</th><td>@Model.LastName</td></tr>
+            <tr><th>Department</th><td>@Model.Department</td></tr>
+            <tr><th>Designation</th><td>@Model.Designation</td></tr>
+            <tr><th>Salary</th><td>@Model.Salary.ToString("C")</td></tr>
+            <tr><th>Date Of Joining</th><td>@Model.DateOfJoining.ToString("yyyy-MM-dd")</td></tr>
+        </tbody>
+    </table>
+
+    <div class="actions">
+        <a class="button" asp-action="Edit" asp-route-id="@Model.EmployeeId">Edit</a>
+        <a class="button secondary" asp-action="Index">Back</a>
+    </div>
+</section>

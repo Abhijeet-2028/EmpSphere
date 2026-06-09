@@ -1,0 +1,15 @@
+@model EmployeeManagementSystem.Model.DatabaseErrorViewModel
+
+@{
+    ViewData["Title"] = "Database Unavailable";
+}
+
+<section class="panel">
+    <h1>Database Unavailable</h1>
+    <p>The application could not finish @Model.Operation because Oracle 19c is not ready for this app.</p>
+    <p>@Model.Message</p>
+
+    <div class="actions">
+        <a class="button" asp-action="Index">Retry</a>
+    </div>
+</section>

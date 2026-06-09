@@ -1,0 +1,56 @@
+@model IReadOnlyList<EmployeeManagementSystem.Model.Employee>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<section class="page-header">
+    <div>
+        <h1>Employees</h1>
+        <p>Manage employee master data, department assignments, designations, salaries, and joining dates.</p>
+    </div>
+    <a class="button" asp-action="Create">Add Employee</a>
+</section>
+
+<section class="panel">
+    <table>
+        <thead>
+            <tr>
+                <th>Employee Id</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+                <th>Salary</th>
+                <th>Date Of Joining</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.EmployeeId</td>
+                    <td>@employee.FirstName @employee.LastName</td>
+                    <td>@employee.Department</td>
+                    <td>@employee.Designation</td>
+                    <td>@employee.Salary.ToString("C")</td>
+                    <td>@employee.DateOfJoining.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@employee.EmployeeId">Details</a> |
+                        <a asp-action="Edit" asp-route-id="@employee.EmployeeId">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@employee.EmployeeId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7">No employees have been created.</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</section>

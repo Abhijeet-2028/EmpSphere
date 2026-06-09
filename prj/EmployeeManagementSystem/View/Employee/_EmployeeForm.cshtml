@@ -1,0 +1,39 @@
+@model EmployeeManagementSystem.Model.Employee
+
+<div class="form-grid">
+    <div class="form-field">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span>
+    </div>
+
+    <div class="form-field">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName"></span>
+    </div>
+
+    <div class="form-field">
+        <label asp-for="Department"></label>
+        <input asp-for="Department" />
+        <span asp-validation-for="Department"></span>
+    </div>
+
+    <div class="form-field">
+        <label asp-for="Designation"></label>
+        <input asp-for="Designation" />
+        <span asp-validation-for="Designation"></span>
+    </div>
+
+    <div class="form-field">
+        <label asp-for="Salary"></label>
+        <input asp-for="Salary" type="number" min="0.01" step="0.01" />
+        <span asp-validation-for="Salary"></span>
+    </div>
+
+    <div class="form-field">
+        <label asp-for="DateOfJoining"></label>
+        <input asp-for="DateOfJoining" type="date" />
+        <span asp-validation-for="DateOfJoining"></span>
+    </div>
+</div>
